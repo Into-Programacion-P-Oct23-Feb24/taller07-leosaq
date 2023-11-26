@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package problema.pkg1;
+package problema1;
 
 import java.util.Locale;
 import java.util.Scanner;
 
 /**
  *
- * @author LAB.ELECT
+ * @author leand
  */
 public class Problema1 {
 
@@ -32,11 +32,13 @@ public class Problema1 {
         int contador = 0;
         double promedioEdad;
         double promedioEstatura;
+        String edades = "" ;
+         
         cadenaReporte = String.format("%s%s\n", cadenaReporte,
                 "Listado de Jugadores");
 
         do {
-            System.out.println("Ingrese el nombre del Jugador: ");
+            System.out.println("Ingrese el nombre y apellido del Jugador: ");
             nombreJugador = entrada.nextLine();
             System.out.println("Ingrese la posición en el campo: ");
             posicionCampo = entrada.nextLine();
@@ -47,10 +49,11 @@ public class Problema1 {
             estatura = entrada.nextDouble();
 
             sumaEdades = sumaEdades + edad;
-            sumaEstatura = sumaEstatura + estatura;
-            contador = contador + 1;
+            sumaEstatura = sumaEstatura + estatura ; 
+            
+            contador = contador + 1 ; 
 
-            cadenaReporte = String.format("%s%d.) %s -%s-, edad %d, estatura %d\n",
+            cadenaReporte = String.format("%s%d.) %s -%s-, edad %d, estatura %s\n",
                     cadenaReporte,
                     contador,
                     nombreJugador,
@@ -63,8 +66,20 @@ public class Problema1 {
             if (salir.equals("si")) {
                 bandera = false;
             }
-        
-    
+        } while (bandera);
+        edades = edades + edad ;
+       cadenaReporte =  String.format("%sListado de edades\n%s\n", 
+               cadenaReporte, edades) ;
 
+        promedioEdad = (double) sumaEdades / contador;
+        cadenaReporte = String.format("%sPromedio de edades: %.2f\n",
+                cadenaReporte, promedioEdad);
 
+        promedioEstatura = (double) sumaEstatura / contador;
+        cadenaReporte = String.format("%sPromedio de estaturas: %.2f\n",
+                cadenaReporte, promedioEstatura);
 
+        System.out.printf("%s\n", cadenaReporte);
+    }
+
+}
