@@ -32,7 +32,7 @@ public class Problema1 {
         int contador = 0;
         double promedioEdad;
         double promedioEstatura;
-        String edades = "" ;
+        String edades = "Listado de Edades" ;
          
         cadenaReporte = String.format("%s%s\n", cadenaReporte,
                 "Listado de Jugadores");
@@ -49,8 +49,7 @@ public class Problema1 {
             estatura = entrada.nextDouble();
 
             sumaEdades = sumaEdades + edad;
-            sumaEstatura = sumaEstatura + estatura ; 
-            
+            sumaEstatura = sumaEstatura + estatura ;
             contador = contador + 1 ; 
 
             cadenaReporte = String.format("%s%d.) %s -%s-, edad %d, estatura %s\n",
@@ -59,6 +58,8 @@ public class Problema1 {
                     nombreJugador,
                     posicionCampo,
                     edad, estatura);
+            
+            edades = String.format("%s\n%s", edades, edad);
 
             entrada.nextLine();
             System.out.println("Desea salir del ciclo; digite: si");
@@ -67,19 +68,18 @@ public class Problema1 {
                 bandera = false;
             }
         } while (bandera);
-        edades = edades + edad ;
-       cadenaReporte =  String.format("%sListado de edades\n%s\n", 
-               cadenaReporte, edades) ;
-
+  
         promedioEdad = (double) sumaEdades / contador;
-        cadenaReporte = String.format("%sPromedio de edades: %.2f\n",
-                cadenaReporte, promedioEdad);
 
         promedioEstatura = (double) sumaEstatura / contador;
-        cadenaReporte = String.format("%sPromedio de estaturas: %.2f\n",
-                cadenaReporte, promedioEstatura);
+       
 
-        System.out.printf("%s\n", cadenaReporte);
+        System.out.printf("%s%s\nPromedio de edades: %.2f\n"
+                + "Promedio de estatura: %.2f\n",
+                cadenaReporte,
+                edades,
+                promedioEdad,
+                promedioEstatura);
     }
 
 }
