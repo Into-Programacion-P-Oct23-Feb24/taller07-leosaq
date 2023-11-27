@@ -15,24 +15,33 @@ public class Problema4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int num1 = 1;
-        int num2 = 3;
-        int limite = 15;
+        int num1 = 0;
+        double num2 = 1;
+        double calculo;
+        int op = 1;
+        double total = 0;
         String signo;
-        String cadena = "1" ;
+        String cadenaF = "";
 
-        while (num2 <= limite) {
-
+        while (num2 <= 15) {
             if (num1 % 2 == 0) {
                 signo = "+";
             } else {
                 signo = "-";
             }
-            num1 = num1+ 1;
-            cadena = String.format("%s %s 1/%s", cadena, signo, num2);
+            calculo = op * (1 / num2);
+            total = total + calculo;
+            num1 = num1 + 1;
+            if (num2 <= 1) {
+                cadenaF = String.format("%s %s", cadenaF, (int) num2);
+            } else {
+                cadenaF = String.format("%s %s 1/%s", cadenaF, signo, (int) num2);
+            }
+
+            op = op * -1;
             num2 = num2 + 2;
         }
-        System.out.println(cadena);
+        System.out.printf("%s\nResultado: %.2f\n", cadenaF, total);
     }
 
 }
